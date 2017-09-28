@@ -141,9 +141,11 @@ class SubplotAnimation(animation.TimedAnimation):
         ax1.set_ylim(0, 5000)
 
         m = Basemap(projection='cyl', llcrnrlat=-90, urcrnrlat=90,
-                    llcrnrlon=-180, urcrnrlon=180, resolution='c')
+                    llcrnrlon=-180, urcrnrlon=180, resolution='l')
         m.fillcontinents(color='0.8')
-        m.drawmapboundary(linewidth=1)
+        # m.drawmapboundary(linewidth=1)
+        m.drawrivers(linewidth=0.2, color='C0')
+        m.drawcountries(linewidth=0.4, color='w')
         self.space = m.plot([], [], markersize=3, linestyle='None',
                             marker='o', color='#FF8000',
                             markeredgecolor='none')[0]
